@@ -36,6 +36,51 @@ const themeUI = createTheme({
             paper: lighten(backgroundDefault, 0.2), // Use a lighter color for paper-based components.
             mapboundries: darken(backgroundDefault, 0.2), // Use a lighter color for paper-based components.
         },
+        robot: {
+            light: '#A9A9A9',
+            main: '#808080',
+            dark: '#696969',
+            contrastText: '#C0C0C0',
+            contrastTextDark: '#D3D3D3',
+            extraDark: '#000000'
+        },
+        factory: {
+            light: '#A0522D',
+            main: '#8B4513',
+            dark: '#D2691E',
+            contrastText: '#CD853F',
+            contrastTextDark: '#F4A460',
+            extraDark: '#000000'
+        },
+        resources: {
+            light: '#C0C0C0',
+            main: '#FFD700',
+            dark: '#B87333',
+            contrastText: '#4682B4',
+            contrastTextDark: '#228B22',
+            extraDark: '#000000'
+        },
+        wiring: {
+            light: '#FFFF00',
+            main: '#FF0000',
+            dark: '#0000FF',
+            contrastText: '#008000',
+            contrastTextDark: '#FFA500',
+        },
+        gameWorldDay: {
+            light: '#008B8B',
+            main: '#800000',
+            dark: '#556B2F',
+            contrastText: '#8B008B',
+            contrastTextDark: '#FF8C00',
+        },
+        gameWorldNight: {
+            light: '#008000',
+            main: '#000080',
+            dark: '#800000',
+            contrastText: '#808000',
+            contrastTextDark: '#800080',
+        },
         // ... add other color palettes as needed
     },
     // The typography object provides styles for typography.

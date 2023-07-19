@@ -1,29 +1,23 @@
 // Game.jsx
 import React, { useContext } from "react";
 import { Stage, Layer } from 'react-konva';
-import { GameContext } from './GameContext';
+import { GameContext } from './GameProvider';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import GameObject from './GameObject';
+import GameObjectComponent from './GameObjectComponent';
 
 function Game() {
-  const { gameObjects, cameraX, cameraY } = useContext(GameContext);
-
-
+  const { gameObjects } = useContext(GameContext);
   return (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
-      <Layer offsetX={-cameraX} offsetY={-cameraY}>
-        <Grid container spacing={2}>
-          {gameObjects.map((gameObjectData, index) => (
-            <Grid item key={index} xs={1}>
-              <GameObject data={gameObjectData} />
-            </Grid>
-          ))}
-        </Grid>
+    <Stage width={window.innerWidth * 0.8} height={window.innerHeight * 0.8}>
+      <Layer>
+        {gameObjects.map((row, y) => row.map((gameObject, x) =>
+          <GameObjectComponent key={`${x},${y}`} gameObject={gameObject} />
+        ))}
       </Layer>
     </Stage>
   );
-
-}
+};
 
 export default Game
+

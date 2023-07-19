@@ -10,6 +10,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import GrainIcon from "@mui/icons-material/Grain";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import TopicIcon from '@mui/icons-material/Topic';
 
 
 import themeUI from '../../theme';
@@ -34,7 +35,7 @@ function Footbar() {
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center' }}
                     color="inherit"
-                    href="/"
+                    href="https://github.com/benjaminmarum/voltForger"
                 >
                     <GitHubIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Git
@@ -45,7 +46,7 @@ function Footbar() {
                     color="inherit"
                     href="/material-ui/getting-started/installation/"
                 >
-                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                    <TopicIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Core
                 </Link>
                 <FootMenu/>
