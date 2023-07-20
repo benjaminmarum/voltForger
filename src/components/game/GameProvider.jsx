@@ -69,6 +69,10 @@ export const GameProvider = ({ children }) => {
         console.log(gameWorld);  // Print the game world
         setGameObjects(gameWorld);  // Set the gameObjects state variable
 
+        
+
+
+        // Add event listeners for keyboard input
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('keyup', handleKeyUp);
 

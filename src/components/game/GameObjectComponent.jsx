@@ -29,3 +29,5 @@ const GameObjectComponent = ({ gameObject }) => {
         />
     );
 };
+
+export default GameObjectComponent;

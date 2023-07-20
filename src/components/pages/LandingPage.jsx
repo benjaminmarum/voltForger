@@ -1,26 +1,38 @@
 // LandingPage.jsx
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import themeUI from '../../theme';
+import { GameContext } from '../game/GameProvider';
+
 
 function LandingPage() {
-    // A Box is a basic component in Material-UI. It's a blank container that can
-    // have custom styles applied to it. Here we're giving it a height of 100vh
-    // (which means 100% of the viewport height), a background color, and center-aligned text.
+    //const gameData = useGameWorld();
+
+    function useGameWorld() {
+        const [gameData, setGameData] = React.useState(null);
+        React.useEffect(() => {
+            const data = generateWorld();
+            setGameData(data);
+        }, []);
+        return gameData;
+    }
+
     return (
-        <Box sx={{
-            height: '85vh',
-            width: '90vw',
-            display: 'flex',
-            alignItems: 'start',
-            justifyContent: 'center',
-            backgroundColor: themeUI.palette.background.main, 
-            //backgroundImage: `url(${Background})`,
-            color: themeUI.palette.secondary.main,
-            overflow: 'clip', // Enable scrolling if content overflows
-        }}>
-            <h1>Landing Page</h1>
-        </Box>
+            <Box sx={{
+                height: '85vh',
+                width: '90vw',
+                display: 'flex',
+                alignItems: 'start',
+                justifyContent: 'center',
+                backgroundColor: themeUI.palette.background.main,
+                //backgroundImage: `url(${Background})`,
+                color: themeUI.palette.secondary.light,
+                overflow: 'clip', // Enable scrolling if content overflows
+            }}>
+                <Typography variant="h6" component="div">
+                    My Header
+                </Typography>
+            </Box>
     );
 }
 

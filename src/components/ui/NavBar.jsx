@@ -13,34 +13,32 @@ function Navbar() {
 
     return (
         <AppBar position="static" color="secondary" sx={{
-            p: 2, 
             backgroundColor: themeUI.palette.background.secondary,
             color: themeUI.palette.secondary.contrastText,
             height: '5vh',
             display: "flex",
-            justifyContent:"center",
+            justifyContent: "center",
         }}>
             <Toolbar>
-                <Box sx={{ 
+                <Box sx={{
                     display: 'flex',
                     justifyContent: 'start',
-                    flexGrow: 1 
-                    }}>
+                    flexGrow: 1
+                }}>
                     <Typography variant="h7" component="div">
-                    ⚡VoltForge⚡
+                        <IconButton color="inherit" aria-label="menu" component={RouterLink} to="/game">
+                            <VideogameAssetIcon />
+                        </IconButton>
                     </Typography>
                 </Box>
                 <IconButton color="inherit" aria-label="menu" component={RouterLink} to="/">
                     <HomeIcon />
                 </IconButton>
-                <IconButton color="inherit" aria-label="menu" component={RouterLink} to="/user">
-                    <PortraitIcon />
-                </IconButton>
-                <IconButton color="inherit" aria-label="menu" component={RouterLink} to="/game">
-                    <VideogameAssetIcon />
-                </IconButton>
                 <IconButton color="inherit" aria-label="menu" component={RouterLink} to="/dev">
                     <CodeIcon />
+                </IconButton>
+                <IconButton color="inherit" aria-label="menu" component={RouterLink} to="/user">
+                    <PortraitIcon />
                 </IconButton>
             </Toolbar>
         </AppBar>
