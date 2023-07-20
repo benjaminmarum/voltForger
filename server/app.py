@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+#this is all performed by service_manager.py
 # server/app.py
 # export FLASK_APP=app.py
 # export FLASK_RUN_PORT=5555
@@ -7,6 +8,7 @@
 # flask db revision --autogenerate -m 'Create tables' 
 # flask db upgrade 
 # Standard imports/boilerplate setup
+
 import os
 from dotenv import load_dotenv
 
@@ -15,32 +17,25 @@ from flask import Flask, request, make_response, jsonify, session
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_cors import CORS
-
-# Bcrypt is a password hashing function
 from flask_bcrypt import Bcrypt
 
 # Import the DatabaseService class from services.py
-from services import ServiceManager
-from services import DatabaseService
-# Create a DatabaseService object
-db_service = DatabaseService()
-# Get the Flask, Bcrypt, and SQLAlchemy objects from the DatabaseService
-app = db_service.get_app()
-db = db_service.get_db()
-bcrypt = db_service.get_bcrypt()
+from service_manager import ServiceManager
+manager = ServiceManager()
+
+# Initialize the app and database
+
+# Get the Flask app, bcrypt, and SQLAlchemy objects
+app = manager.get_app()
+bcrypt = manager.get_bcrypt()
+db = manager.get_db()
 
 from models import User
-
-
-migrate = Migrate(app, db)
-db.init_app(app)
 
 # Restful setup
 api = Api(app)
 CORS(app)
-app.secret_key = os.getenv('SECRET_KEY')
-if not app.secret_key:
-    raise RuntimeError("SECRET_KEY environment variable is not set!")
+
 
 @app.route('/')
 def index():

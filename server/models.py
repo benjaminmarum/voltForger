@@ -5,7 +5,7 @@ from sqlalchemy import MetaData
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from services import DatabaseService
+from services.database_service import DatabaseService  # This is the custom class that encapsulates the database operations
 
 # Create a DatabaseService object
 db_service = DatabaseService()
@@ -91,7 +91,7 @@ class GameState(db.Model,SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    game_state = db.Column(db.JSONB)
+    game_state = db.Column(db.JSON)
     saved_at = db.Column(db.DateTime, server_default=db.func.now())
 
     user = db.relationship('User', back_populates='gamestate')
